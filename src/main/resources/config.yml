@@ -1,0 +1,56 @@
+# ============================================================
+#  RegayaSecurity - config.yml
+#  Dikembangkan oleh RegayaGamtor
+#  Semua nilai divalidasi saat plugin dimuat. Nilai yang tidak
+#  valid diganti dengan nilai default dan dicatat di console.
+# ============================================================
+
+# Jarak maksimal (blok) antara penggeledah dan target.
+# Jika terlampaui saat sesi berlangsung, sesi dibatalkan otomatis.
+max-distance: 3.0
+
+# Batas waktu target menjawab permintaan penggeledahan biasa (detik).
+# Tidak dijawab = otomatis ditolak.
+request-timeout-seconds: 30
+
+# Lama animasi loading penggeledahan paksa (detik).
+force-search-duration-seconds: 5
+
+# Batas waktu penggeledah untuk memukul target setelah /geledahpaksa (detik).
+force-hit-timeout-seconds: 15
+
+# Interval (tick) pemeriksaan pengaman sinkronisasi inventory.
+# Sinkronisasi utama berbasis event; task ini hanya membandingkan slot yang
+# berubah lewat jalur tanpa event (plugin lain, dsb.) lalu menggambar ulang
+# HANYA slot yang berbeda. 20 tick = 1 detik.
+sync-interval-ticks: 2
+
+# Interval (tick) pemeriksaan kondisi sesi (jarak, dunia, izin, GUI terbuka).
+session-check-interval-ticks: 5
+
+# Pembatalan otomatis. Ketiganya WAJIB true demi keamanan inventory:
+# sesi tidak aman dilanjutkan setelah pindah dunia, terputus, atau mati.
+# Nilai false akan diabaikan (dipaksa true) dan dicatat sebagai peringatan.
+cancel-on-world-change: true
+cancel-on-disconnect: true
+cancel-on-death: true
+
+# true  = penggeledahan paksa hanya untuk target yang didaftarkan lewat
+#         /regayasecurity target add <pemain>   (DIREKOMENDASIKAN)
+# false = SEMUA pemain bisa digeledah paksa oleh pengguna berizin.
+require-force-target-whitelist: true
+
+# Catat aktivitas penggeledahan ke plugins/RegayaSecurity/logs/audit.log
+# (tanpa isi inventory).
+log-search-actions: true
+
+# Jeda (detik) sebelum penggeledah yang sama dapat mengirim permintaan baru.
+request-cooldown-seconds: 10
+
+# Jumlah konflik slot BERUNTUN (isi slot berubah tepat saat diklik) sebelum
+# sesi dihentikan demi mencegah kehilangan/duplikasi item.
+max-conflicts: 10
+
+# true = slot armor hanya menerima item armor yang sesuai (helm/chestplate/dst).
+# false = slot armor menerima item apa saja.
+strict-armor-slots: true

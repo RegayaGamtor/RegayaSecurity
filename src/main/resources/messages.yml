@@ -1,0 +1,153 @@
+# ============================================================
+#  RegayaSecurity - messages.yml
+#  Gunakan kode warna '&' (contoh: &a hijau, &c merah) atau &#RRGGBB.
+#  Placeholder (%player%, %seconds%, dll.) harus dipertahankan.
+#  Nilai dari pemain (nama, alasan) otomatis dibersihkan dari kode warna.
+#  PENTING: biarkan setiap nilai tetap berada di dalam tanda kutip.
+# ============================================================
+
+prefix: "&8[&bRegayaSecurity&8] "
+
+# ---------- Umum ----------
+no-permission: "&cAnda tidak memiliki izin untuk menggunakan perintah ini."
+player-only: "&cPerintah ini hanya dapat digunakan oleh pemain di dalam game."
+player-not-found: "&cPemain tidak ditemukan atau sedang offline."
+cannot-self: "&cAnda tidak dapat menggeledah diri sendiri."
+different-world: "&cAnda dan target harus berada di dunia yang sama."
+player-too-far: "&cAnda harus berada dalam jarak maksimal %distance% blok dari target."
+searcher-busy: "&cAnda sedang terlibat dalam sesi penggeledahan lain."
+target-busy: "&c%player% sedang terlibat dalam sesi penggeledahan lain."
+searcher-dead: "&cAnda tidak dapat menggeledah dalam keadaan mati."
+target-unavailable: "&cTarget sedang tidak tersedia untuk digeledah."
+request-cooldown: "&cTunggu %seconds% detik lagi sebelum mengirim permintaan penggeledahan baru."
+usage-geledah: "&cPenggunaan: &f/geledah <nama_pemain> [alasan]"
+usage-geledahpaksa: "&cPenggunaan: &f/geledahpaksa <nama_pemain>"
+usage-admin:
+  - "&bPerintah RegayaSecurity:"
+  - "&f/regayasecurity reload &7- muat ulang konfigurasi"
+  - "&f/regayasecurity add <pemain> &7- daftarkan pengguna penggeledahan paksa"
+  - "&f/regayasecurity remove <pemain> &7- cabut akses penggeledahan paksa"
+  - "&f/regayasecurity target add <pemain> &7- izinkan pemain menjadi target paksa"
+  - "&f/regayasecurity target remove <pemain> &7- cabut izin target paksa"
+  - "&f/regayasecurity info <pemain> &7- lihat status izin dan sesi"
+
+# ---------- Penggeledahan biasa (dengan persetujuan) ----------
+request-sent: "&aPermintaan penggeledahan berhasil dikirim."
+request-received: "&e%player% meminta izin untuk menggeledah Anda."
+request-reason: "&7Alasan: &f%reason%"
+request-accepted: "&aAnda menerima permintaan penggeledahan."
+request-accepted-searcher: "&a%player% menerima permintaan Anda. Inventory target sekarang terbuka."
+request-denied: "&cPermintaan penggeledahan ditolak."
+request-denied-searcher: "&c%player% menolak permintaan penggeledahan Anda."
+request-closed: "&cAnda menutup permintaan penggeledahan, sehingga dianggap ditolak."
+request-expired: "&cPermintaan penggeledahan telah kedaluwarsa."
+
+# ---------- Penggeledahan paksa ----------
+force-not-authorized: "&cAnda tidak memiliki akses penggeledahan paksa."
+target-not-allowed: "&cPemain ini tidak diizinkan menjadi target penggeledahan paksa."
+force-hit-instruction: "&ePukul target yang ditentukan untuk memulai penggeledahan paksa."
+force-hit-target: "&7Target: &f%player% &7| Batas waktu: &e%seconds% detik"
+force-hit-actionbar: "&ePukul &b%player% &euntuk memulai penggeledahan &7(%seconds% dtk)"
+force-wrong-target: "&cAnda memukul orang yang salah. Pukul &f%player% &cuntuk memulai."
+force-hit-timeout: "&cWaktu habis. Penggeledahan paksa dibatalkan."
+force-progress: "&ePenggeledahan paksa berlangsung... %bar% &b%progress%%"
+force-completed-searcher: "&aPenggeledahan paksa selesai. Inventory &f%player% &akini terbuka."
+force-started-target: "&c%player% telah memulai penggeledahan paksa terhadap Anda."
+
+# ---------- Sesi berakhir / dibatalkan ----------
+session-cancelled-distance: "&cPenggeledahan dibatalkan karena jarak Anda dengan target terlalu jauh."
+session-cancelled-disconnect: "&cPenggeledahan dibatalkan karena pemain terputus."
+session-cancelled-world: "&cPenggeledahan dibatalkan karena salah satu pemain berpindah dunia."
+session-cancelled-death: "&cPenggeledahan dibatalkan karena salah satu pemain mati."
+session-cancelled-unavailable: "&cPenggeledahan dihentikan karena target tidak lagi tersedia."
+session-cancelled-permission: "&cPenggeledahan dihentikan karena izin Anda tidak lagi berlaku."
+session-cancelled-shutdown: "&cPenggeledahan dihentikan karena plugin dimatikan atau dimuat ulang."
+session-finished: "&aSesi penggeledahan telah selesai."
+inventory-conflict: "&cSesi dihentikan untuk mencegah kehilangan atau duplikasi item."
+gui-open-failed: "&cGUI penggeledahan tidak dapat dibuka. Sesi dibatalkan."
+slot-changed: "&eIsi slot berubah saat Anda mengklik. Silakan coba lagi."
+armor-invalid: "&cItem ini tidak dapat dipasang di slot tersebut."
+
+# ---------- Administrator ----------
+admin-reloaded: "&aKonfigurasi dan pesan berhasil dimuat ulang."
+player-unknown: "&cPemain tidak dikenal. Pemain harus sedang online atau pernah bergabung ke server."
+admin-save-failed: "&cPerubahan berlaku di memori, tetapi gagal disimpan ke data.yml. Periksa console."
+admin-user-added: "&a%player% sekarang terdaftar sebagai pengguna penggeledahan paksa."
+admin-user-exists: "&e%player% sudah terdaftar sebagai pengguna penggeledahan paksa."
+admin-user-removed: "&a%player% tidak lagi terdaftar sebagai pengguna penggeledahan paksa."
+admin-user-missing: "&e%player% tidak ada dalam daftar pengguna penggeledahan paksa."
+admin-target-added: "&a%player% sekarang boleh menjadi target penggeledahan paksa."
+admin-target-exists: "&e%player% sudah ada dalam daftar target penggeledahan paksa."
+admin-target-removed: "&a%player% tidak lagi menjadi target penggeledahan paksa."
+admin-target-missing: "&e%player% tidak ada dalam daftar target penggeledahan paksa."
+admin-info:
+  - "&8&m                                   "
+  - "&bInfo RegayaSecurity: &f%player%"
+  - "&7UUID: &f%uuid%"
+  - "&7Status: &f%online%"
+  - "&7Izin penggeledahan biasa (regayasecurity.use): &f%perm-use%"
+  - "&7Izin penggeledahan paksa (regayasecurity.force): &f%perm-force%"
+  - "&7Terdaftar sebagai pengguna paksa: &f%registered-user%"
+  - "&7Terdaftar sebagai target paksa: &f%registered-target%"
+  - "&7Sesi saat ini: &f%session%"
+  - "&8&m                                   "
+word-yes: "Ya"
+word-no: "Tidak"
+word-online: "Online"
+word-offline: "Offline (izin tidak dapat diperiksa)"
+info-session-none: "Tidak ada"
+info-session-active: "%type% (%state%) sebagai %role% bersama %other%"
+role-searcher: "penggeledah"
+role-target: "target"
+state-requested: "menunggu jawaban"
+state-awaiting-hit: "menunggu pukulan"
+state-progress: "loading"
+state-active: "aktif"
+
+# ---------- Teks GUI ----------
+type-normal: "Biasa"
+type-force: "Paksa"
+reason-none: "Tidak disebutkan"
+
+gui-request-title: "&8Permintaan Penggeledahan"
+gui-request-accept-name: "&a&lTERIMA PENGGELEDAHAN"
+gui-request-accept-lore:
+  - "&7Klik untuk mengizinkan %player%"
+  - "&7melihat dan mengubah isi inventory Anda."
+gui-request-deny-name: "&c&lTOLAK PENGGELEDAHAN"
+gui-request-deny-lore:
+  - "&7Klik untuk menolak permintaan ini."
+  - "&7Tidak ada item Anda yang akan berubah."
+gui-request-info-name: "&e&lPermintaan Penggeledahan"
+gui-request-info-lore:
+  - "&7Penggeledah: &f%player%"
+  - "&7Alasan: &f%reason%"
+  - "&7Batas waktu: &e%seconds% detik"
+  - ""
+  - "&7Menutup jendela ini = menolak."
+
+gui-search-title: "&8Geledah: &b%player%"
+gui-search-info-name: "&b&lInformasi Perlengkapan"
+gui-search-info-lore:
+  - "&7Target: &f%player%"
+  - "&7Jenis: &f%type%"
+  - "&7Status: &aPenggeledahan aktif"
+  - ""
+  - "&7Perubahan langsung berlaku pada"
+  - "&7inventory asli target."
+  - "&7Menjauh atau menutup jendela"
+  - "&7akan mengakhiri sesi."
+gui-close-name: "&c&lAKHIRI PENGGELEDAHAN"
+gui-close-lore:
+  - "&7Klik untuk menutup sesi."
+  - "&7Item yang sudah dipindahkan tetap"
+  - "&7berada pada pemilik barunya."
+gui-main-label: "&e&lInventory Utama"
+gui-main-label-lore:
+  - "&7Di bawah: inventory utama,"
+  - "&7lalu baris terakhir adalah hotbar."
+gui-empty-helmet: "&7Slot Helm (kosong)"
+gui-empty-chestplate: "&7Slot Chestplate (kosong)"
+gui-empty-leggings: "&7Slot Leggings (kosong)"
+gui-empty-boots: "&7Slot Sepatu (kosong)"
+gui-empty-offhand: "&7Slot Offhand (kosong)"

@@ -1,0 +1,40 @@
+name: RegayaSecurity
+version: '${project.version}'
+main: com.regayagamtor.regayasecurity.RegayaSecurity
+api-version: '1.21'
+author: RegayaGamtor
+authors: [RegayaGamtor]
+description: Sistem penggeledahan inventory pemain yang aman untuk server roleplay.
+load: POSTWORLD
+
+commands:
+  geledah:
+    description: Meminta izin untuk menggeledah inventory pemain lain.
+    usage: /geledah <nama_pemain> [alasan]
+  geledahpaksa:
+    description: Penggeledahan paksa (khusus pemain yang diberi akses oleh administrator).
+    usage: /geledahpaksa <nama_pemain>
+  regayasecurity:
+    description: Pengaturan akses dan konfigurasi RegayaSecurity.
+    usage: /regayasecurity <reload|add|remove|target|info>
+    aliases: [rsecurity]
+
+permissions:
+  regayasecurity.use:
+    description: Menggunakan penggeledahan biasa (dengan persetujuan target).
+    default: op
+  regayasecurity.force:
+    description: Menggunakan penggeledahan paksa (tetap hanya untuk target yang didaftarkan).
+    default: false
+  regayasecurity.admin:
+    description: Mengatur akses pengguna penggeledahan paksa dan melihat info pemain.
+    default: op
+    children:
+      regayasecurity.target.manage: true
+      regayasecurity.reload: true
+  regayasecurity.target.manage:
+    description: Mengatur daftar pemain yang boleh menjadi target penggeledahan paksa.
+    default: op
+  regayasecurity.reload:
+    description: Memuat ulang config.yml dan messages.yml.
+    default: op
