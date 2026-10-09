@@ -2,31 +2,45 @@ name: Build RegayaSecurity
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main, master]
+    tags: ['v*']
   pull_request:
-    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write   # dibutuhkan hanya untuk membuat Release saat push tag v*
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
+      - name: Ambil source code
+        uses: actions/checkout@v4
 
-      - name: Set up JDK 21
-        uses: actions/setup-java@v5
+      - name: Siapkan JDK 21
+        uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
+          distribution: temurin
           java-version: '21'
           cache: maven
 
-      - name: Build with Maven
-        run: mvn -B clean package -DskipTests
+      - name: Build dengan Maven
+        run: mvn -B -ntp clean package
 
-      - name: Upload JAR Artifact
+      - name: Verifikasi isi jar
+        run: |
+          test -f target/RegayaSecurity.jar
+          unzip -l target/RegayaSecurity.jar | grep -E "plugin.yml|config.yml|messages.yml"
+
+      - name: Unggah artifact jar
         uses: actions/upload-artifact@v4
         with:
-          name: RegayaSecurity-jar
-          path: target/*.jar
+          name: RegayaSecurity
+          path: target/RegayaSecurity.jar
+          if-no-files-found: error
+
+      - name: Buat GitHub Release (hanya saat tag v*)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: target/RegayaSecurity.jar
