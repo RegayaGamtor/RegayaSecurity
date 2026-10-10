@@ -63,7 +63,7 @@ public final class InventoryListener implements Listener {
         SearchSession session = plugin.sessions().getById(holder.sessionId());
         if (session == null || session.state() != State.REQUESTED
                 || !session.targetId().equals(player.getUniqueId())) {
-            Bukkit.getScheduler().runTask(plugin, player::closeInventory);
+            Bukkit.getScheduler().runTask(plugin, () -> player.closeInventory());
             return;
         }
         ClickType click = event.getClick();
