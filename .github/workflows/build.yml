@@ -9,16 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-java@v4
         with:
-          distribution: temurin
+          distribution: 'temurin'
           java-version: '21'
           cache: maven
-      - name: Build
-        working-directory: RegayaSecurity
+
+      - name: Build with Maven
         run: mvn -B clean package
-      - name: Upload JAR
+
+      - name: Upload JAR Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: RegayaSecurity-jar
-          path: RegayaSecurity/target/RegayaSecurity.jar
+          name: RegayaSecurity 1.0-jar
+          path: target/*.jar
