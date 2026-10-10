@@ -103,7 +103,7 @@ public final class InventorySyncManager {
         if (session == null || session.state() != State.ACTIVE || session.gui() == null
                 || !session.searcherId().equals(viewer.getUniqueId())) {
             // GUI usang (sesi sudah berakhir) atau bukan milik pemain ini: tutup.
-            Bukkit.getScheduler().runTask(plugin, viewer::closeInventory);
+            Bukkit.getScheduler().runTask(plugin, () -> viewer.closeInventory());
             return;
         }
         if (session.isPendingEnd()) {
